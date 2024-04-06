@@ -1,6 +1,6 @@
 Parameters:
   EnvironmentName:
-    Description: An environment name that is prefixed to resource names
+    Description: POC-VPC
     Type: String
 
   VpcCIDR:
