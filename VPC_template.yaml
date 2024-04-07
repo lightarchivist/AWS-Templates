@@ -96,13 +96,11 @@ Resources:
 
   NatGateway1EIP:
     Type: AWS::EC2::EIP
-    DependsOn: InternetGatewayAttachment
     Properties:
       Domain: vpc
 
   NatGateway2EIP:
     Type: AWS::EC2::EIP
-    DependsOn: InternetGatewayAttachment
     Properties:
       Domain: vpc
 
@@ -182,17 +180,11 @@ Resources:
       DestinationCidrBlock: 0.0.0.0/0
       NatGatewayId: !Ref NatGateway2
 
-  PrivateSubnet2RouteTableAssociation:
-    Type: AWS::EC2::SubnetRouteTableAssociation
-    Properties:
-      RouteTableId: !Ref PrivateRouteTable2
-      SubnetId: !Ref PrivateSubnet2
-
   PublicSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupName: "public-sg"
-      GroupDescription: "Security group allowing HTTPS and port 8080 inbound traffic"
+      GroupDescription: "Security group allowing HTTP and port 80 inbound traffic"
       VpcId: !Ref VPC
       SecurityGroupIngress:
         - IpProtocol: tcp
@@ -271,4 +263,3 @@ Resources:
       TargetType: instance
       Targets:
         - Id: !Ref WebServerAutoScalingGroup
-
