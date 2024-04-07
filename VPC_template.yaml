@@ -77,7 +77,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref VPC
-      AvailabilityZone: us-east-2a
+      AvailabilityZone: us-east-1b
       CidrBlock: !Ref PublicSubnet2CIDR
       MapPublicIpOnLaunch: true
       Tags:
@@ -88,7 +88,7 @@ Resources:
     Type: AWS::EC2::Subnet
     Properties:
       VpcId: !Ref VPC
-      AvailabilityZone: us-east-2a
+      AvailabilityZone: us-east-1b
       CidrBlock: !Ref PrivateSubnet2CIDR
       Tags:
         - Key: Name
