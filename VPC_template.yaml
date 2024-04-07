@@ -199,10 +199,6 @@ Resources:
           FromPort: 443
           ToPort: 443
           CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: 8080
-          ToPort: 8080
-          CidrIp: 0.0.0.0/0
 
   WebServerSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -214,10 +210,6 @@ Resources:
         - IpProtocol: tcp
           FromPort: 443
           ToPort: 443
-          CidrIp: 0.0.0.0/0
-        - IpProtocol: tcp
-          FromPort: 8080
-          ToPort: 8080
           CidrIp: 0.0.0.0/0
 
   WebServerLaunchConfiguration:
@@ -268,8 +260,8 @@ Resources:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
       Name: MyTargetGroup
-      Port: 80
-      Protocol: HTTP
+      Port: 443
+      Protocol: HTTPS
       VpcId: !Ref VPC
       HealthCheckEnabled: true
       HealthCheckIntervalSeconds: 30
