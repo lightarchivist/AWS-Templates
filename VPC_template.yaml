@@ -215,7 +215,7 @@ Resources:
   WebServerLaunchConfiguration:
     Type: AWS::AutoScaling::LaunchConfiguration
     Properties:
-      ImageId: ami-0a699202e5027c10d
+      ImageId: ami-051f8a213df8bc089
       InstanceType: t2.micro # Change this to your desired instance type
       SecurityGroups:
         - !Ref WebServerSecurityGroup
